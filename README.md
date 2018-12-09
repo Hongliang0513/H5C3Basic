@@ -1,2 +1,1 @@
-# JavaEE
-JavaEE仓库，收藏代码
+# Become an excellent JavaScript programmer
