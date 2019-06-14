@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+
+			body {
+				background: pink;
+			}
+
+			#test {
+				background: gray;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 画布大小设置定义在标签属性内，定义在css中会对画布上图形造成拉伸 默认大小300x150-->
+		<canvas id="test" width="300" height="300">
+			<span>当浏览器不支持canvas时，canvas标签内的内容会显示，否则显示画布上的内容</span>
+		</canvas>
+		<script type="text/javascript">
+			window.onload = function() {
+				//拿到画布
+				let canvas = document.querySelector('#test')
+				if (canvas.getContext) {
+					let ctx = canvas.getContext('2d')
+					//注意不加单位
+					//填充的矩形
+					ctx.fillRect(0, 0, 100, 100)
+					//带边框的矩形  
+					// 100	: 99.5 --- 100.5(99-101)
+					// 100.5: 100  --- 101 
+					// ctx.strokeRect(100.5, 100.5, 100, 100)
+					ctx.strokeRect(100, 100, 100, 100)
+					ctx.clearRect(100,100,100,100)
+				}
+			}
+		</script>
+	</body>
+</html>

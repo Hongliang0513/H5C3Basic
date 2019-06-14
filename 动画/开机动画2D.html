@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+
+			#wrap {
+				position: relative;
+				height: 100%;
+				background-color: gray;
+			}
+
+			#wrap>.inner {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%, -50%, 0);
+				white-space: nowrap;
+			}
+
+			#wrap>.inner>span {
+				position: relative;
+				/* animation: move 2s linear infinite alternate; */
+			}
+
+			@keyframes move {
+				from {
+					bottom: 0;
+				}
+
+				to {
+					bottom: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="inner">
+				<span>人</span>
+				<span>生</span>
+				<span>若</span>
+				<span>只</span>
+				<span>如</span>
+				<span>初</span>
+				<span>见</span>
+				<span>，</span>
+				<span>何</span>
+				<span>事</span>
+				<span>悲</span>
+				<span>风</span>
+				<span>秋</span>
+				<span>画</span>
+				<span>扇</span>
+				<span>。</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				let spanNodes = document.querySelectorAll('#wrap > .inner > span')
+				for (let i = 0; i < spanNodes.length; i++) {
+					let colora = Math.floor(Math.random() * 256)
+					let colorb = Math.floor(Math.random() * 256)
+					let colorc = Math.floor(Math.random() * 256)
+					let opa = Math.random()
+					spanNodes[i].style.animation = `move .3s ${(i*50)}ms linear infinite alternate`
+					spanNodes[i].style.color = `rgba(${colora},${colorb},${colorc},${opa})`
+				}
+			}
+		</script>
+	</body>
+</html>

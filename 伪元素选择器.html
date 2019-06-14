@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /* .class 类选择器
+			:first-child伪类选择器
+			::first-letter 伪元素选择器
+		 */
+    p::first-letter {
+        color: red;
+        font-size: 70px;
+    }
+
+    p::first-line {
+        color: green;
+    }
+
+    p::selection {
+        color: skyblue;
+    }
+
+    /*div {
+		 	width:100px;
+		 	height:100px;
+		 	
+		 }*/
+    div::before {
+        content: 'before';
+        color: yellow;
+        /*font-size:20px;*/
+    }
+
+    div::after {
+        content: 'after';
+        color: orange;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>会发生</h1>
+    <p>发噶话费卡夫卡就是积分换简单恢复开机按键反馈就是非那都是你的房间开始的空间按发送，hg就n一绝热集合噶几科技开发的实施发哈法人， 加分开发，微积分纳斯达克了【fjasf.welfoajfhfjafdsa,f回房间的工会文件反抗以为</p>
+    <div> before和after是在内部增加行内元素
+    </div>
+</body>
+
+</html>

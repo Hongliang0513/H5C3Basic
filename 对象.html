@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            let a = 'b'
+            let obj1 = {
+                a: 2,
+                b: 'c'
+            }
+            let obj2 = {
+                [a]: 'c' //[a]表示key值a为变量
+            }
+            console.log(obj1, obj2)
+        } {
+            console.log('判断是否相等，等价于===', Object.is([], []), [] === [])
+            console.log('判断是否相等，等价于===', Object.is(undefined, undefined), undefined === undefined)
+            console.log('判断是否相等，等价于===', Object.is(null, null), null === null)
+            console.log('判断是否相等，等价于===', Object.is(NaN, NaN), NaN === NaN)
+        } {
+            // 声明
+            let a1 = Symbol();
+            let a2 = Symbol();
+            console.log(a1 === a2);
+            let a3 = Symbol.for('a3');
+            let a4 = Symbol.for('a3');
+            console.log(a3 === a4);
+        }
+
+        {
+            let a1 = Symbol.for('abc');
+            let obj = {
+                [a1]: '123',
+                'abc': 345,
+                'c': 456
+            };
+            console.log('obj', obj);
+
+            for (let [key, value] of Object.entries(obj)) {
+                console.log('let of', key, value);
+            }
+
+            Object.getOwnPropertySymbols(obj).forEach(function (item) {
+                console.log(obj[item]);
+            })
+
+            Reflect.ownKeys(obj).forEach(function (item) {
+                console.log('ownkeys', item, obj[item]);
+            })
+        }
+    </script>
+</body>
+
+</html>
