@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+
+			#wrap {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+
+			#wrap>img {
+				width: 64px;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrap">
+			<img src="02_mac停靠栏/images/1.png">
+			<img src="02_mac停靠栏/images/2.png">
+			<img src="02_mac停靠栏/images/3.png">
+			<img src="02_mac停靠栏/images/4.png">
+			<img src="02_mac停靠栏/images/5.png">
+		</section>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			let r = 320
+			let imgNodes = document.querySelectorAll('#wrap > img')
+			document.onmousemove = function(ev) {
+				ev = ev || event
+				for (let i = 0; i < imgNodes.length; i++) {
+					let a = imgNodes[i].getBoundingClientRect().left + imgNodes[i].offsetWidth / 2 - ev.clientX
+					let b = imgNodes[i].getBoundingClientRect().top + imgNodes[i].offsetHeight / 2 - ev.clientY
+					let c = Math.sqrt(a * a + b * b)
+					if (c >= r) {
+						c = r
+					}
+					imgNodes[i].style.width = 128 - c * 0.2 + 'px'
+				}
+			}
+		}
+	</script>
+</html>
